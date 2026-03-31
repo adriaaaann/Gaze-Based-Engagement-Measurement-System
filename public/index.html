@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARGUS Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+   
+    <script type="module" src="../src/app/app.js"></script>
+</head>
+<body>
+    <div id="app-container">
+        
+        <section id="screen-start" class="screen active">
+            <h1>ARGUS Research Platform</h1>
+            <p>Passive and Adaptive Gaze Task Engine</p>
+            <button id="btn-start">Initialize System</button>
+        </section>
+
+        
+        <section id="screen-calibration" class="screen">
+            <div id="camera-container">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="calib-overlay"></canvas>
+            </div>
+            <div id="calib-instructions">
+                <h2>System Calibration</h2>
+                <p id="calib-status">Waiting for face...</p>
+                <button id="btn-begin-calib" disabled>Begin Calibration</button>
+            </div>
+        </section>
+
+   
+        <section id="screen-task" class="screen">
+            <video id="background-video" preload="auto" loop muted playsinline crossorigin="anonymous" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 5; display: none;"></video>
+            
+            <div id="stimulus-container" style="display: none;"></div>
+            
+            <canvas id="search-canvas" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 10;"></canvas>
+
+            
+            <div id="gaze-hud" style="position: absolute; top: 10px; right: 10px; padding: 15px; background: rgba(0,0,0,0.8); color: lime; font-family: monospace; z-index: 10000; border: 1px solid lime; border-radius: 5px; pointer-events: none;">
+                <h3>AOI Telemetry</h3>
+                <div id="hud-predicted-aoi">Predicted: N/A</div>
+                <div id="hud-confidence">Confidence: N/A</div>
+                <hr style="border-color: #333">
+                <div id="hud-active-target">Active Target: N/A</div>
+                <div id="hud-hold-progress">Hold Progress: 0%</div>
+            </div>
+
+            
+            <div id="task-controls" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; gap: 10px;">
+                <button id="btn-run-passive">Start Passive Search</button>
+                <button id="btn-run-adaptive">Start Adaptive Search</button>
+                <button id="btn-show-report">View Report</button>
+                <button id="btn-export-data">Export Data</button>
+            </div>
+        </section>
+
+        
+        <section id="screen-results" class="screen">
+            <h2>Session Complete</h2>
+            <div id="results-summary"></div>
+            <button id="btn-restart">Restart</button>
+        </section>
+        
+      
+        <div id="debug-overlay">
+            <pre id="debug-log"></pre>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+Validation Summary Report
+=========================
+Session ID: session_1774378315222
+Timestamp: 2026-03-24T18:51:55.222Z
+Overall Accuracy: 79.33%
+Acceptance Threshold: 75%
+Decision: ACCEPTED
+
+Per-AOI Accuracy:
+  CENTER: 0.00%
+  TOP: 96.67%
+  BOTTOM: 100.00%
+  LEFT: 100.00%
+  RIGHT: 100.00%
